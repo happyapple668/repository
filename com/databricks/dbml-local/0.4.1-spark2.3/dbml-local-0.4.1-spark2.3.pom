@@ -1,0 +1,32 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.databricks</groupId>
+    <artifactId>dbml-local</artifactId>
+    <packaging>jar</packaging>
+    <description>dbml-local</description>
+    <version>0.4.1-spark2.3</version>
+    <name>dbml-local</name>
+    <organization>
+        <name>com.databricks</name>
+    </organization>
+    <url>https://github.com/databricks/</url>
+    <licenses>
+        <license>
+            <name>MIT License</name>
+            <url>http://www.opensource.org/licenses/mit-license.php</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
+    <scm>
+        <url>git@github.com:databricks/</url>
+        <connection>scm:git:git@github.com:databricks/</connection>
+    </scm>
+    <developers>
+        <developer>
+            <id>thunterdb</id>
+            <name>Tim Hunter</name>
+            <url></url>
+        </developer>
+    </developers>
+</project>

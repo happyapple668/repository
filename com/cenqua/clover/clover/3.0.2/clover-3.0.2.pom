@@ -1,0 +1,32 @@
+<project>
+     <modelVersion>4.0.0</modelVersion>
+     <groupId>com.cenqua.clover</groupId>
+     <artifactId>clover</artifactId>
+     <version>3.0.2</version>
+     <name>Clover Ant</name>
+     <description>
+         Clover is an award winning code coverage and testing tool for Java.
+         It integrates easily with Maven (1 and 2), Ant, Eclipse and IntelliJ-IDEA.
+     </description>
+     <url>http://atlassian.com/software/clover</url>
+     <packaging>jar</packaging>
+     <organization>
+         <name>Atlassian Pty Ltd</name>
+         <url>http://www.atlassian.com/</url>
+     </organization>
+     <issueManagement>
+         <system>jira</system>
+         <url>http://jira.atlassian.com/browse/CLOV</url>
+     </issueManagement>
+     <build>
+        <testSourceDirectory>test</testSourceDirectory>
+        <sourceDirectory>src</sourceDirectory>
+         <extensions>
+             <extension>
+                 <groupId>org.apache.maven.wagon</groupId>
+                 <artifactId>wagon-webdav</artifactId>
+                 <version>1.0-beta-2</version>
+             </extension>
+         </extensions>
+     </build>
+</project>

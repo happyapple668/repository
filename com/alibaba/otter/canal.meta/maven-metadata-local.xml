@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata>
+  <groupId>com.alibaba.otter</groupId>
+  <artifactId>canal.meta</artifactId>
+  <versioning>
+    <versions>
+      <version>1.0.26-SNAPSHOT</version>
+    </versions>
+    <lastUpdated>20180124152351</lastUpdated>
+  </versioning>
+</metadata>

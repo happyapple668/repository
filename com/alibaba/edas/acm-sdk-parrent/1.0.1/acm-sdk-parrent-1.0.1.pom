@@ -1,0 +1,95 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+	<modelVersion>4.0.0</modelVersion>
+	<name>acm-sdk-parrent</name>
+
+	<groupId>com.alibaba.edas</groupId>
+	<artifactId>acm-sdk-parrent</artifactId>
+	<version>1.0.1</version>
+	<packaging>pom</packaging>
+
+	<modules>
+		<module>acm-sdk</module>
+	</modules>
+
+	<organization>
+		<name>Alibaba</name>
+		<url>https://cn.aliyun.com/product/acm/</url>
+	</organization>
+	<description>spring-cloud-acm</description>
+	<url>https://cn.aliyun.com/product/acm</url>
+
+	<scm>
+		<url>git@gitlab.alibaba-inc.com:middleware/acm.git</url>
+		<connection>
+scm:git:git@gitlab.alibaba-inc.com:middleware/acm.git
+</connection>
+		<developerConnection>
+scm:git:git@gitlab.alibaba-inc.com:middleware/acm.git
+</developerConnection>
+	</scm>
+
+    <licenses>
+        <license>
+            <name>The Apache Software License, Version 2.0</name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0</url>
+        </license>
+    </licenses>
+    
+    <developers>
+        <developer>
+            <id>juven.xuxb</id>
+            <name>许晓斌</name>
+            <email>juven.xuxb@alibaba-inc.com</email>
+            <roles>
+                <role>developer</role>
+            </roles>
+        </developer>
+    </developers>
+    
+	<distributionManagement>
+		<snapshotRepository>
+			<!-- 这里的ID一定要在maven setting文件中存在于server下的ID -->
+			<id>sona</id>
+			<url>https://oss.sonatype.org/content/repositories/snapshots/</url>
+		</snapshotRepository>
+		<repository>
+			<id>sona</id>
+			<url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+		</repository>
+	</distributionManagement>
+	
+	<build>
+		<plugins>
+				<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-javadoc-plugin</artifactId>
+			<!-- 	<version>2.9.1</version> -->
+				<executions>
+					<execution>
+						<phase>package</phase>
+						<goals>
+							<goal>jar</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+		   	<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-gpg-plugin</artifactId>
+				<version>1.5</version>
+				<executions>
+					<execution>
+						<id>sign-artifacts</id>
+						<phase>verify</phase>
+						<goals>
+							<goal>sign</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+	
+</project>
