@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>com.vaadin</groupId>
+        <artifactId>flow-component-base</artifactId>
+        <version>2.1.0</version>
+    </parent>
+
+    <artifactId>vaadin-grid-flow-parent</artifactId>
+    <version>4.1.0</version>
+    <packaging>pom</packaging>
+    <name>Vaadin Grid Flow Parent</name>
+    
+    <properties>
+        <contextmenu.version>3.1.0</contextmenu.version>
+        <flow.version>2.1.0</flow.version>
+    </properties>
+
+   <repositories>
+        <!-- repositories are configured in parent but still need this
+             when parent is a snapshot -->
+        <repository>
+            <id>vaadin-snapshots</id>
+            <url>https://oss.sonatype.org/content/repositories/vaadin-snapshots/</url>
+            <releases>
+                <enabled>false</enabled>
+            </releases>
+        </repository>
+        <repository>
+            <id>vaadin-prereleases</id>
+            <url>https://maven.vaadin.com/vaadin-prereleases</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
+    </repositories>
+
+    <modules>
+        <module>vaadin-grid-flow</module>
+        <module>vaadin-grid-flow-testbench</module>
+        <module>vaadin-grid-flow-demo</module>
+    </modules>
+
+    <profiles>
+        <profile>
+            <id>default</id>
+            <activation>
+                <property>
+                    <name>!release</name>
+                </property>
+            </activation>
+            <modules>
+                <module>vaadin-grid-flow-integration-tests/pom-bower-mode.xml</module>
+                <module>vaadin-grid-flow-integration-tests</module>
+            </modules>
+        </profile>
+    </profiles>
+</project>

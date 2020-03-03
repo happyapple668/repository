@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata>
+  <groupId>com.vip.saturn</groupId>
+  <artifactId>saturn-plugin</artifactId>
+  <versioning>
+    <latest>master-SNAPSHOT</latest>
+    <versions>
+      <version>master-SNAPSHOT</version>
+    </versions>
+    <lastUpdated>20181106114720</lastUpdated>
+  </versioning>
+</metadata>

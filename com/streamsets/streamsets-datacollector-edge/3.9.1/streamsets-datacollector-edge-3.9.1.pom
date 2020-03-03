@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.streamsets</groupId>
+  <artifactId>streamsets-datacollector-edge</artifactId>
+  <version>3.9.1</version>
+  <description>StreamSets Data Collector Edge</description>
+  <name>StreamSets Data Collector Edge</name>
+  <packaging>pom</packaging>
+  <url>http://www.streamsets.com</url>
+  <scm>
+    <url>https://github.com/streamsets/datacollector-edge</url>
+  </scm>
+  <organization>
+    <name>StreamSets</name>
+    <url>http://www.streamsets.com</url>
+  </organization>
+
+  <licenses>
+    <license>
+      <name>Apache License, Version 2.0</name>
+      <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+    </license>
+  </licenses>
+
+  <developers>
+    <developer>
+      <id>StreamSetsEng</id>
+      <name>StreamSetsEngineering</name>
+      <email>eng@streamsets.com</email>
+      <timezone>America/Los_Angeles</timezone>
+    </developer>
+  </developers>
+</project>
