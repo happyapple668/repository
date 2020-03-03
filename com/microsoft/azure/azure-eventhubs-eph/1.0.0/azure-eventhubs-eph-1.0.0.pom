@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+  <modelVersion>4.0.0</modelVersion>
+  
+  <groupId>com.microsoft.azure</groupId>
+  <artifactId>azure-eventhubs-eph</artifactId>
+  <version>1.0.0</version>
+  <packaging>jar</packaging>
+  
+  <name>azure-eventhubs-eph</name>
+  <description>
+    Event Processor Host library to reliably receive from Microsoft Azure Event Hubs.
+  </description>
+  <url>https://github.com/Azure/azure-event-hubs-java/</url>
+  
+  <licenses>
+    <license>
+      <name>MIT license</name>
+      <url>http://www.opensource.org/licenses/mit-license.php</url>
+    </license>
+  </licenses>
+
+  <developers>
+    <developer>
+      <name>JAMES BIRDSALL</name>
+      <organization>Microsoft</organization>
+    </developer>
+	<developer>
+      <name>SABEE GREWAL</name>
+      <organization>Microsoft</organization>
+    </developer>
+    <developer>
+      <name>SREERAM GARLAPATI</name>
+      <organization>Microsoft</organization>
+    </developer>
+  </developers>
+  
+  <scm>
+    <connection>scm:git:git@github.com:Azure/azure-event-hubs-java.git</connection>
+    <developerConnection>scm:git:git@github.com:Azure/azure-event-hubs-java.git</developerConnection>
+    <url>git@github.com:Azure/azure-event-hubs-java.git</url>
+  </scm>
+
+  <dependencies>
+    <dependency>
+      <groupId>com.microsoft.azure</groupId>
+      <artifactId>azure-eventhubs</artifactId>
+      <version>1.0.0</version>
+    </dependency>
+    <dependency>
+        <groupId>com.microsoft.azure</groupId>
+        <artifactId>azure-storage</artifactId>
+        <version>6.1.0</version>
+    </dependency>
+    <dependency>
+        <groupId>com.google.code.gson</groupId>
+        <artifactId>gson</artifactId>
+        <version>2.8.2</version>
+    </dependency>
+  </dependencies>
+
+</project>

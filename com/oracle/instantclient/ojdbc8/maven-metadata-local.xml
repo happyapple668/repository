@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata>
+  <groupId>com.oracle.instantclient</groupId>
+  <artifactId>ojdbc8</artifactId>
+  <versioning>
+    <release>12.2.0.1</release>
+    <versions>
+      <version>11.2.0.4</version>
+      <version>12.1.0.2</version>
+      <version>12.2.0.1</version>
+    </versions>
+    <lastUpdated>20200202113419</lastUpdated>
+  </versioning>
+</metadata>

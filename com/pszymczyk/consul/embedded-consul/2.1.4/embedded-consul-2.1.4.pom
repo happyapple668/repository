@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.pszymczyk.consul</groupId>
+  <artifactId>embedded-consul</artifactId>
+  <version>2.1.4</version>
+  <name>Embedded Consul</name>
+  <description>Embedded Consul provides easy way to run Consul in integration tests.</description>
+  <url>https://github.com/pszymczyk/embedded-consul</url>
+  <licenses>
+    <license>
+      <name>The Apache Software License, Version 2.0</name>
+      <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+    </license>
+  </licenses>
+  <developers>
+    <developer>
+      <id>pszymczyk</id>
+      <name>Pawel Szymczyk</name>
+      <email>pawel@pszymczyk.com</email>
+    </developer>
+  </developers>
+  <scm>
+    <connection>git@github.com:pszymczyk/embedded-consul.git</connection>
+    <developerConnection>git@github.com:pszymczyk/embedded-consul.git</developerConnection>
+    <url>https://github.com/pszymczyk/embedded-consul</url>
+  </scm>
+  <dependencies>
+    <dependency>
+      <groupId>org.codehaus.groovy</groupId>
+      <artifactId>groovy-all</artifactId>
+      <version>2.4.7</version>
+      <scope>compile</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.ant</groupId>
+      <artifactId>ant</artifactId>
+      <version>1.9.4</version>
+      <scope>compile</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.codehaus.groovy.modules.http-builder</groupId>
+      <artifactId>http-builder</artifactId>
+      <version>0.7.1</version>
+      <scope>compile</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.slf4j</groupId>
+      <artifactId>slf4j-api</artifactId>
+      <version>1.7.25</version>
+      <scope>compile</scope>
+    </dependency>
+  </dependencies>
+</project>

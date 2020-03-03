@@ -1,0 +1,10 @@
+<html>
+<body>
+<p>You are using a deprecated resolve URL for Pentaho projects. The correct resolve URL is:</p>
+<p><a href="http://nexus.pentaho.org/content/groups/omni">http://nexus.pentaho.org/content/groups/omni</a></p>
+<p>Please refer to the official Pentaho Documentation on how to build Pentaho projects with Maven:</p>
+<p><a href="https://github.com/pentaho/maven-parent-poms/wiki">https://github.com/pentaho/maven-parent-poms/wiki</a></p>
+<p>This is a sample settings.xml file that could be used in your local build environment:</p>
+<p><a href="https://github.com/pentaho/maven-parent-poms/blob/master/maven-support-files/settings.xml">https://github.com/pentaho/maven-parent-poms/blob/master/maven-support-files/settings.xml</a></p>
+</body>
+</html>
