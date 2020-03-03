@@ -1,0 +1,51 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>io.github.gearpump</groupId>
+    <artifactId>gearpump-streaming_2.12</artifactId>
+    <packaging>jar</packaging>
+    <description>gearpump-streaming</description>
+    <version>0.9.0</version>
+    <name>gearpump-streaming</name>
+    <organization>
+        <name>io.github.gearpump</name>
+    </organization>
+    <url>https://github.com/gearpump/gearpump</url>
+    <licenses>
+        <license>
+            <name>Apache 2</name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+        </license>
+    </licenses>
+    <scm>
+        <connection>scm:git:git@github.com:gearpump/gearpump.git</connection>
+        <url>https://github.com/gearpump/gearpump.git</url>
+    </scm>
+    <developers>
+        <developer>
+            <id>gearpump</id>
+            <name>Gearpump Team</name>
+            <url>https://github.com/orgs/gearpump/teams</url>
+        </developer>
+    </developers>
+    <dependencies>
+        <dependency>
+            <groupId>io.github.gearpump</groupId>
+            <artifactId>gearpump-core_2.12</artifactId>
+            <version>0.9.0</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.google.code.findbugs</groupId>
+            <artifactId>jsr305</artifactId>
+            <version>3.0.2</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>io.github.gearpump</groupId>
+            <artifactId>gearpump-core_2.12</artifactId>
+            <version>0.9.0</version>
+            <scope>provided</scope>
+        </dependency>
+    </dependencies>
+</project>

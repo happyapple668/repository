@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <!-- This POM relocates the old group ID to the new one. -->
+
+    <groupId>io.smallrye</groupId>
+    <artifactId>smallrye-config</artifactId>
+    <version>1.5.0</version>
+
+    <packaging>pom</packaging>
+
+    <name>SmallRye: MicroProfile Config Implementation (relocation)</name>
+    <description>Relocation for MicroProfile Config artifact</description>
+    <url>http://smallrye.io</url>
+
+    <developers>
+        <developer>
+            <name>David Lloyd</name>
+            <email>david.lloyd@redhat.com</email>
+            <organization>Red Hat</organization>
+            <organizationUrl>https://www.redhat.com/en</organizationUrl>
+        </developer>
+    </developers>
+
+    <licenses>
+        <license>
+            <name>Apache License, Version 2.0</name>
+            <url>https://www.apache.org/licenses/LICENSE-2.0.txt</url>
+        </license>
+    </licenses>
+
+    <issueManagement>
+        <system>GitHub</system>
+        <url>https://github.com/smallrye/smallrye-config/issues</url>
+    </issueManagement>
+
+    <scm>
+        <connection>scm:git:git@github.com:smallrye/smallrye-config.git</connection>
+        <developerConnection>scm:git:git@github.com:smallrye/smallrye-config.git</developerConnection>
+        <url>https://github.com/smallrye/smallrye-config/tree/reloc</url>
+        <tag>HEAD</tag>
+    </scm>
+
+    <distributionManagement>
+        <relocation>
+            <groupId>io.smallrye.config</groupId>
+            <artifactId>smallrye-config</artifactId>
+            <version>1.5.0</version>
+        </relocation>
+    </distributionManagement>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-gpg-plugin</artifactId>
+                <version>1.6</version>
+                <executions>
+                    <execution>
+                        <id>sign-artifacts</id>
+                        <phase>verify</phase>
+                        <goals>
+                            <goal>sign</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>

@@ -1,0 +1,5 @@
+#NOTE: This is a Maven Resolver internal implementation file, its format can be changed without prior notice.
+#Wed Mar 04 00:05:52 CST 2020
+http\://packages.confluent.io/maven/.error=
+http\://packages.confluent.io/maven/.lastUpdated=1583251516889
+http\://maven.aliyun.com/nexus/content/groups/public/.lastUpdated=1583251552705
