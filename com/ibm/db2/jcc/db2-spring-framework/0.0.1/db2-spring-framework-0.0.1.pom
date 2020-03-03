@@ -1,0 +1,30 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<modelVersion>4.0.0</modelVersion>
+<groupId>com.ibm.db2.jcc</groupId>
+<artifactId>db2-spring-framework</artifactId>
+<version>0.0.1</version>
+<name>db2-spring-framework</name>
+<description>
+db2-spring-framework. You can use this jar for autoconfiguration of JCC properties for Db2 LUW server.
+</description>
+<licenses>
+<license>
+<name>International Program License Agreement (IPLA)</name>
+<url>
+http://www-03.ibm.com/software/sla/sladb.nsf/displaylis/434AFD95999716D985258426004D5E4F?OpenDocument
+</url>
+<distribution>repo</distribution>
+<comments>
+You can use this jar for Spring applications that access the Db2 LUW database server
+</comments>
+</license>
+</licenses>
+<dependencies>
+<!--  https://mvnrepository.com/artifact/com.ibm.db2/jcc  -->
+<dependency>
+<groupId>com.ibm.db2</groupId>
+<artifactId>jcc</artifactId>
+<version>11.5.0.0</version>
+</dependency>
+</dependencies>
+</project>

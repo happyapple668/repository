@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata>
+  <groupId>com.github.ksprojects</groupId>
+  <artifactId>zkcopy</artifactId>
+  <versioning>
+    <versions>
+      <version>0.2.1-SNAPSHOT</version>
+    </versions>
+    <lastUpdated>20170402051031</lastUpdated>
+  </versioning>
+</metadata>
