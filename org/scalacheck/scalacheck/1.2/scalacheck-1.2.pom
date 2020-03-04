@@ -1,0 +1,40 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>org.scalacheck</groupId>
+  <artifactId>scalacheck</artifactId>
+  <version>1.2</version>
+  <packaging>jar</packaging>
+  <name>ScalaCheck</name>
+  <url>http://code.google.com/p/scalacheck/</url>
+  <description>ScalaCheck is a tool for testing Scala programs, based on property specifications and automatic test data generation. The basic idea is that you define a property that specifies the behaviour of a method or some unit of code, and ScalaCheck checks that the property holds. All test data are generated automatically in a random fashion, so you don't have to worry about any missed cases.</description>
+  <licenses>
+    <license>
+      <name>New BSD License</name>
+      <url>http://www.opensource.org/licenses/bsd-license.php</url>
+      <distribution>repo</distribution>
+    </license>
+  </licenses>
+  <inceptionYear>2007</inceptionYear>
+
+  <properties>
+    <scala.version>2.7.0-rc2</scala.version>
+  </properties>
+
+  <repositories>
+    <repository>
+      <id>scala-tools.org</id>
+      <name>Scala-Tools Maven2 Repository</name>
+      <url>http://scala-tools.org/repo-releases</url>
+    </repository>
+  </repositories>
+
+  <dependencies>
+    <dependency>
+      <groupId>org.scala-lang</groupId>
+      <artifactId>scala-library</artifactId>
+      <version>${scala.version}</version>
+      <scope>provided</scope>
+    </dependency>
+  </dependencies>
+
+</project>

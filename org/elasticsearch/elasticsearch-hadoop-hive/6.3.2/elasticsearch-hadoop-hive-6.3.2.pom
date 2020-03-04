@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>org.elasticsearch</groupId>
+  <artifactId>elasticsearch-hadoop-hive</artifactId>
+  <version>6.3.2</version>
+  <name>Elasticsearch Hadoop Hive</name>
+  <description>Elasticsearch Hadoop Hive</description>
+  <url>http://github.com/elastic/elasticsearch-hadoop</url>
+  <organization>
+    <name>Elastic</name>
+    <url>https://www.elastic.co/</url>
+  </organization>
+  <licenses>
+    <license>
+      <name>The Apache Software License, Version 2.0</name>
+      <url>https://www.apache.org/licenses/LICENSE-2.0.txt</url>
+      <distribution>repo</distribution>
+    </license>
+  </licenses>
+  <developers>
+    <developer>
+      <id>jbaiera</id>
+      <name>James Baiera</name>
+      <email>james.baiera@elastic.co</email>
+    </developer>
+    <developer>
+      <id>costin</id>
+      <name>Costin Leau</name>
+      <email>costin@elastic.co</email>
+    </developer>
+  </developers>
+  <scm>
+    <connection>scm:git:git://github.com/elastic/elasticsearch-hadoop</connection>
+    <developerConnection>scm:git:git://github.com/elastic/elasticsearch-hadoop</developerConnection>
+    <url>https://github.com/elastic/elasticsearch-hadoop</url>
+  </scm>
+  <dependencies>
+    <dependency>
+      <groupId>org.apache.hive</groupId>
+      <artifactId>hive-service</artifactId>
+      <version>1.2.1</version>
+      <scope>provided</scope>
+      <exclusions>
+        <exclusion>
+          <artifactId>log4j-slf4j-impl</artifactId>
+          <groupId>*</groupId>
+        </exclusion>
+      </exclusions>
+    </dependency>
+  </dependencies>
+</project>
