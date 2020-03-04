@@ -1,0 +1,74 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<project xmlns='http://maven.apache.org/POM/4.0.0' xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' xsi:schemaLocation='http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd'>
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>org.grails.plugins</groupId>
+  <artifactId>miniprofiler</artifactId>
+  <packaging>zip</packaging>
+  <version>0.4.1</version>
+  <name>Mini Profiler plugin</name>
+  <description>Shows timing and sql query information in a head-up display in a web page, useful for debugging
+database and other performance problems.
+</description>
+  <url>http://grails.org/plugin/miniprofiler</url>
+  <licenses>
+    <license>
+      <name>Apache License 2.0</name>
+      <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+    </license>
+  </licenses>
+  <developers>
+    <developer>
+      <name>Tom Dunstan</name>
+      <email>grails@tomd.cc</email>
+    </developer>
+  </developers>
+  <issueManagement>
+    <system>Github</system>
+    <url>https://github.com/tomdcc/grails-miniprofiler/issues</url>
+  </issueManagement>
+  <scm>
+    <url>https://github.com/tomdcc/grails-miniprofiler</url>
+  </scm>
+  <dependencies>
+    <dependency>
+      <groupId>io.jdev.miniprofiler</groupId>
+      <artifactId>miniprofiler-grails</artifactId>
+      <version>0.4.1</version>
+      <scope>compile</scope>
+      <exclusions>
+        <exclusion>
+          <groupId>xml-apis</groupId>
+          <artifactId>xml-apis</artifactId>
+        </exclusion>
+        <exclusion>
+          <groupId>xml-apis</groupId>
+          <artifactId>xmlParserAPIs</artifactId>
+        </exclusion>
+        <exclusion>
+          <groupId>xerces</groupId>
+          <artifactId>xmlParserAPIs</artifactId>
+        </exclusion>
+      </exclusions>
+    </dependency>
+    <dependency>
+      <groupId>io.jdev.miniprofiler</groupId>
+      <artifactId>miniprofiler-core</artifactId>
+      <version>0.4.1</version>
+      <scope>compile</scope>
+      <exclusions>
+        <exclusion>
+          <groupId>xml-apis</groupId>
+          <artifactId>xml-apis</artifactId>
+        </exclusion>
+        <exclusion>
+          <groupId>xml-apis</groupId>
+          <artifactId>xmlParserAPIs</artifactId>
+        </exclusion>
+        <exclusion>
+          <groupId>xerces</groupId>
+          <artifactId>xmlParserAPIs</artifactId>
+        </exclusion>
+      </exclusions>
+    </dependency>
+  </dependencies>
+</project>

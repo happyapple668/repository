@@ -1,0 +1,49 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<project xmlns='http://maven.apache.org/POM/4.0.0' xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' xsi:schemaLocation='http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd'>
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>org.grails.plugins</groupId>
+  <artifactId>less-asset-pipeline</artifactId>
+  <packaging>zip</packaging>
+  <version>2.7.2</version>
+  <name>LESS Asset-Pipeline Plugin</name>
+  <description>Provides LESS support for the asset-pipeline static asset management plugin.</description>
+  <url>http://github.com/bertramdev/less-grails-asset-pipeline</url>
+  <licenses>
+    <license>
+      <name>Apache License 2.0</name>
+      <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+    </license>
+  </licenses>
+  <organization>
+    <name>Bertram Capital</name>
+    <url>http://www.bertramcapital.com/</url>
+  </organization>
+  <developers>
+    <developer>
+      <name>David Estes</name>
+      <email>destes@bcap.com</email>
+    </developer>
+  </developers>
+  <issueManagement>
+    <system>GITHUB</system>
+    <url>http://github.com/bertramdev/less-grails-asset-pipeline/issues</url>
+  </issueManagement>
+  <scm>
+    <url>http://github.com/bertramdev/less-grails-asset-pipeline</url>
+  </scm>
+  <dependencies>
+    <dependency>
+      <groupId>org.grails.plugins</groupId>
+      <artifactId>asset-pipeline</artifactId>
+      <version>2.7.2</version>
+      <type>zip</type>
+      <scope>runtime</scope>
+    </dependency>
+    <dependency>
+      <groupId>com.bertramlabs.plugins</groupId>
+      <artifactId>less-asset-pipeline</artifactId>
+      <version>2.7.2</version>
+      <scope>compile</scope>
+    </dependency>
+  </dependencies>
+</project>

@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+
+    Copyright (C) 2012 FuseSource, Inc.
+    http://fusesource.com
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+
+-->
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <parent>
+    <groupId>org.fusesource.hawtdispatch</groupId>
+    <artifactId>hawtdispatch-project</artifactId>
+    <version>1.22</version>
+  </parent>
+
+  <groupId>org.fusesource.hawtdispatch</groupId>
+  <artifactId>hawtdispatch-scala-2.11</artifactId>
+  <version>1.22</version>
+  <packaging>bundle</packaging>
+
+  <description>HawtDispatch: The libdispatch style API for Scala</description>
+
+  <properties>
+    <scala-version>2.11.0</scala-version>
+    <scalatest-version>2.1.5</scalatest-version>
+  </properties>
+
+  <dependencies>
+    
+    <dependency>
+      <groupId>org.fusesource.hawtdispatch</groupId>
+      <artifactId>hawtdispatch</artifactId>
+      <version>1.22</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.scala-lang</groupId>
+      <artifactId>scala-library</artifactId>
+      <version>${scala-version}</version>
+      <scope>provided</scope>
+    </dependency>
+
+    <!-- Testing -->
+    <dependency>
+      <groupId>org.scalatest</groupId>
+      <artifactId>scalatest_2.11</artifactId>
+      <version>${scalatest-version}</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>${junit-version}</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>log4j</groupId>
+      <artifactId>log4j</artifactId>
+      <version>${log4j-version}</version>
+      <scope>test</scope>
+    </dependency>
+  </dependencies>
+
+  <build>
+    <defaultGoal>install</defaultGoal>
+    
+    <sourceDirectory>../hawtdispatch-scala/src/main/scala</sourceDirectory>
+    <resources>
+      <resource>
+        <directory>../hawtdispatch-scala/src/main/resources</directory>
+      </resource>
+    </resources>
+
+    <testSourceDirectory>../hawtdispatch-scala/src/test/scala</testSourceDirectory>
+    <testResources>
+      <testResource>
+        <directory>../hawtdispatch-scala/src/test/resources</directory>
+      </testResource>
+    </testResources>
+        
+    <plugins>
+      
+      <plugin>
+        <groupId>org.apache.felix</groupId>
+        <artifactId>maven-bundle-plugin</artifactId>
+        <extensions>true</extensions>
+        <inherited>true</inherited>
+        <configuration>
+          <instructions>
+            <Fragment-Host>${project.groupId}.hawtdispatch</Fragment-Host>
+            <Export-Package>{local-packages};version=${project.version};-noimport:=true;-split-package:=first</Export-Package>
+          </instructions>
+        </configuration>
+      </plugin>
+      
+      <plugin>
+        <groupId>net.alchim31.maven</groupId>
+        <artifactId>scala-maven-plugin</artifactId>
+        <version>3.1.0</version>
+        <executions>
+          <execution>
+            <goals>
+              <goal>compile</goal>
+              <goal>testCompile</goal>
+            </goals>
+          </execution>
+        </executions>
+        <configuration>
+          <scaladocClassName>scala.tools.nsc.ScalaDoc</scaladocClassName>
+          <jvmArgs>
+            <jvmArg>-Xmx1024m</jvmArg>
+          </jvmArgs>
+          <args>
+            <!-- <arg>-optimise</arg> -->
+            <arg>-deprecation</arg>
+          </args>
+          <scalaVersion>${scala-version}</scalaVersion>
+        </configuration>
+      </plugin>
+      <plugin>
+        <artifactId>maven-surefire-plugin</artifactId>
+        <version>2.4.3</version>
+        <configuration>
+          <!-- we must turn off the use of system class loader so our tests can find stuff - otherwise ScalaSupport compiler can't find stuff -->
+          <useSystemClassLoader>false</useSystemClassLoader>
+          <!--forkMode>pertest</forkMode-->
+          <childDelegation>false</childDelegation>
+          <useFile>true</useFile>
+          <failIfNoTests>false</failIfNoTests>
+        </configuration>
+      </plugin>
+
+    </plugins>
+  </build>
+  
+  <reporting>
+    <plugins>
+      <plugin>
+        <groupId>net.alchim31.maven</groupId>
+        <artifactId>scala-maven-plugin</artifactId>
+        <version>3.1.0</version>
+        <configuration>
+          <scalaVersion>${scala-version}</scalaVersion>
+          <jvmArgs>
+            <jvmArg>-Xmx850M</jvmArg>
+          </jvmArgs>
+        </configuration>
+      </plugin>
+    </plugins>
+  </reporting>
+  
+  <profiles>
+
+    <!-- helper for the IDEA scala integration, enable this profile in IDEA -->
+    <profile>
+      <id>idea</id>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>net.alchim31.maven</groupId>
+            <artifactId>scala-maven-plugin</artifactId>
+            <version>3.1.0</version>
+            <configuration>
+              <args>
+                <arg>-deprecation</arg>
+              </args>
+            </configuration>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+
+    <profile>
+      <id>release</id>
+      <build>
+        <plugins>
+          
+          <!-- Generate the Scala Docs so that they can be included in the javadoc artifact -->
+          <plugin>
+            <groupId>net.alchim31.maven</groupId>
+            <artifactId>scala-maven-plugin</artifactId>
+            <version>3.1.0</version>
+            <executions>
+              <execution>
+                <id>doc</id>
+                <phase>process-classes</phase>
+                <goals>
+                  <goal>doc</goal>
+                </goals>
+                <configuration>
+                  <reportOutputDirectory>${project.build.directory}</reportOutputDirectory>
+                  <outputDirectory>apidocs</outputDirectory>
+                </configuration>                
+              </execution>
+            </executions>
+          </plugin>
+        </plugins> 
+      </build>
+    </profile>
+  </profiles>
+</project>
