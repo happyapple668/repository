@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>org.jamon</groupId>
+        <artifactId>jamon-java-parent</artifactId>
+        <version>2.4.1</version>
+        <relativePath>../jamon-java-parent</relativePath>
+    </parent>
+    <artifactId>jamon-api</artifactId>
+    <name>jamon-api</name>
+    <version>2.3.1</version>
+    <packaging>jar</packaging>
+    <description>Jamon processor API</description>
+    <scm>
+        <url>scm:svn:https://svn.code.sf.net/p/jamon/code/releases/jamon-api/jamon-api-2.3.1</url>
+        <connection>scm:svn:https://svn.code.sf.net/p/jamon/code/releases/jamon-api/jamon-api-2.3.1</connection>
+        <developerConnection>scm:svn:https://svn.code.sf.net/p/jamon/code/releases/jamon-api/jamon-api-2.3.1</developerConnection>
+    </scm>
+</project>

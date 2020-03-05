@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>org.linkedin</groupId>
+  <artifactId>org.linkedin.util-core</artifactId>
+  <version>1.7.1</version>
+  <name>linkedin-utils</name>
+  <description>Set of utility classes used by other LinkedIn open source projects</description>
+  <url>http://github.com/linkedin/linkedin-utils</url>
+  <licenses>
+    <license>
+      <name>The Apache Software License, Version 2.0</name>
+      <url>http://www.apache.org/licenses/LICENSE-2.0</url>
+    </license>
+  </licenses>
+  <developers>
+    <developer>
+      <id>ypujante</id>
+      <name>Yan Pujante</name>
+      <email>yan@pongasoft.com</email>
+    </developer>
+    <developer>
+      <id>mdubey</id>
+      <name>Manish Dubey</name>
+      <email>mdubey@linkedin.com</email>
+    </developer>
+  </developers>
+  <scm>
+    <connection>scm:git:git@github.com:linkedin/linkedin-utils.git</connection>
+    <developerConnection>scm:git:git@github.com:linkedin/linkedin-utils.git</developerConnection>
+    <url>git@github.com:linkedin/linkedin-utils.git</url>
+  </scm>
+  <dependencies>
+    <dependency>
+      <groupId>org.slf4j</groupId>
+      <artifactId>slf4j-api</artifactId>
+      <version>1.5.8</version>
+      <scope>compile</scope>
+    </dependency>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>4.4</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.slf4j</groupId>
+      <artifactId>slf4j-log4j12</artifactId>
+      <version>1.5.8</version>
+      <scope>test</scope>
+    </dependency>
+  </dependencies>
+</project>
