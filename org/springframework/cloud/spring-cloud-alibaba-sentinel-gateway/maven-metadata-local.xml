@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata>
+  <groupId>org.springframework.cloud</groupId>
+  <artifactId>spring-cloud-alibaba-sentinel-gateway</artifactId>
+  <versioning>
+    <versions>
+      <version>0.9.1.BUILD-SNAPSHOT</version>
+    </versions>
+    <lastUpdated>20190511152441</lastUpdated>
+  </versioning>
+</metadata>

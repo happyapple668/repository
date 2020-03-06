@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata>
+  <groupId>org.springframework.cloud.stream.app</groupId>
+  <artifactId>spring-cloud-starter-stream-common-cdc-debezium-core</artifactId>
+  <versioning>
+    <versions>
+      <version>1.0.0.BUILD-SNAPSHOT</version>
+    </versions>
+    <lastUpdated>20200207032136</lastUpdated>
+  </versioning>
+</metadata>
