@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?><project>
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>org.apache.velocity</groupId>
+  <artifactId>velocity</artifactId>
+  <packaging>pom</packaging>
+  <name>Apache Velocity</name>
+  <version>1.5</version>
+  <description>Apache Velocity is a general purpose template engine.</description>
+  <url>http://velocity.apache.org/engine/releases/velocity-1.5/</url>
+  <issueManagement>
+    <system>JIRA</system>
+    <url>https://issues.apache.org/jira/browse/VELOCITY</url>
+  </issueManagement>
+  <inceptionYear>2000</inceptionYear>
+  <developers>
+    <developer>
+      <id>wglass</id>
+      <name>Will Glass-Husain</name>
+      <email>wglass@forio.com</email>
+      <organization>Forio Business Simulations</organization>
+      <roles>
+        <role>Java Developer</role>
+      </roles>
+    </developer>
+    <developer>
+      <id>geirm</id>
+      <name>Geir Magnusson Jr.</name>
+      <email>geirm@optonline.net</email>
+      <organization>Independent (DVSL Maven)</organization>
+      <roles>
+        <role>Java Developer</role>
+      </roles>
+    </developer>
+    <developer>
+      <id>dlr</id>
+      <name>Daniel Rall</name>
+      <email>dlr@finemaltcoding.com</email>
+      <organization>CollabNet, Inc.</organization>
+      <roles>
+        <role>Java Developer</role>
+      </roles>
+    </developer>
+    <developer>
+      <id>henning</id>
+      <name>Henning P. Schmiedehausen</name>
+      <email>hps@intermeta.de</email>
+      <organization>INTERMETA - Gesellschaft für Mehrwertdienste mbH</organization>
+      <roles>
+        <role>Java Developer</role>
+      </roles>
+      <timezone>2</timezone>
+    </developer>
+    <developer>
+      <id>nbubna</id>
+      <name>Nathan Bubna</name>
+      <email>nathan@esha.com</email>
+      <organization>ESHA Research</organization>
+      <roles>
+        <role>Java Developer</role>
+      </roles>
+    </developer>
+  </developers>
+  <licenses>
+    <license>
+      <name>The Apache Software License, Version 2.0</name>
+      <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+      <distribution>repo</distribution>
+    </license>
+  </licenses>
+  <scm>
+    <connection>scm:svn:http://svn.apache.org/repos/asf/velocity/engine/tags/Velocity_1.5</
