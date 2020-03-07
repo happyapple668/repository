@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one or more
+    contributor license agreements.  See the NOTICE file distributed with
+    this work for additional information regarding copyright ownership.
+    The ASF licenses this file to You under the Apache License, Version 2.0
+    (the "License"); you may not use this file except in compliance with
+    the License.  You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+
+<!-- $Rev: 1333345 $ $Date: 2012-05-03 03:59:15 -0400 (Thu, 03 May 2012) $ -->
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>org.apache.geronimo.genesis</groupId>
+        <artifactId>genesis-java6-flava</artifactId>
+        <version>2.0</version>
+        <relativePath />
+    </parent>
+
+    <groupId>org.apache.geronimo.components</groupId>
+    <artifactId>geronimo-jaspi</artifactId>
+    <version>2.0.0</version>
+    <packaging>bundle</packaging>
+    <name>Apache Geronimo JASPI implementation</name>
+
+    <description>Geronimo JASPI implementation using xml/jaxb for simple xml configuration.</description>
+
+    <scm>
+        <connection>scm:svn:http://svn.apache.org/repos/asf/geronimo/components/jaspi/tags/geronimo-jaspi-2.0.0</connection>
+        <developerConnection>scm:svn:https://svn.apache.org/repos/asf/geronimo/components/jaspi/tags/geronimo-jaspi-2.0.0</developerConnection>
+        <url>http://svn.apache.org/viewvc/geronimo/components/jaspi/tags/geronimo-jaspi-2.0.0</url>
+    </scm>
+
+    <url>http://geronimo.apache.org/maven/${siteId}/${project.version}</url>
+
+    <properties>
+        <siteId>components/${project.artifactId}</siteId>
+    </properties>
+
+    <distributionManagement>
+        <site>
+            <id>geronimo-website</id>
+            <url>${staging.siteURL}/${siteId}/${project.version}</url>
+        </site>
+    </distributionManagement>
+
+    <dependencies>
+
+        <dependency>
+            <groupId>org.apache.geronimo.specs</groupId>
+            <artifactId>geronimo-osgi-locator</artifactId>
+            <version>1.0</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.geronimo.specs</groupId>
+            <artifactId>geronimo-jaspic_1.0_spec</artifactId>
+            <version>1.1</version>
+        </dependency>
+
+        <!--<dependency>-->
+            <!--<groupId>org.apache.geronimo.specs</groupId>-->
+            <!--<artifactId>geronimo-jaxb_2.2_spec</artifactId>-->
+            <!--<version>1.0</version>-->
+        <!--</dependency>-->
+
+        <!--<dependency>-->
+            <!--<groupId>org.apache.geronimo.specs</groupId>-->
+            <!--<artifactId>geronimo-stax-api_1.2_spec</artifactId>-->
+            <!--<version>1.0</version>-->
+        <!--</dependency>-->
+
+        <dependency>
+            <groupId>org.apache.xbean</groupId>
+            <artifactId>xbean-reflect</artifactId>
+            <version>3.6</version>
+        </dependency>
+
+        <!--<dependency>-->
+            <!--<groupId>org.apache.geronimo.bundles</groupId>-->
+            <!--<artifactId>sxc-jaxb</artifactId>-->
+            <!--&lt;!&ndash;<version>0.8-SNAPSHOT</version>&ndash;&gt;-->
+            <!--<version>0.7.2_1</version>-->
+        <!--</dependency>-->
+
+        <!--<dependency>-->
+            <!--<groupId>org.apache.geronimo.bundles</groupId>-->
+            <!--<artifactId>woodstox</artifactId>-->
+            <!--<version>3.2.9_1</version>-->
+        <!--</dependency>-->
+
+        <!--<dependency>-->
+            <!--<groupId>org.apache.geronimo.bundles</groupId>-->
+            <!--<artifactId>jaxb-impl</artifactId>-->
+            <!--<version>2.2_1</version>-->
+        <!--</dependency>-->
+
+        <!--<dependency>-->
+            <!--<groupId>com.sun.xml.bind</groupId>-->
+            <!--<artifactId>jaxb-xjc</artifactId>-->
+            <!--<version>2.2</version>-->
+            <!--<scope>provided</scope>-->
+        <!--</dependency>-->
+
+        <dependency>
+            <groupId>org.testng</groupId>
+            <artifactId>testng</artifactId>
+            <version>5.8</version>
+            <classifier>jdk15</classifier>
+            <scope>test</scope>
+        </dependency>
+
+    </dependencies>
+    <build>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                  <groupId>org.apache.maven.plugins</groupId>
+                  <artifactId>maven-jar-plugin</artifactId>
+                  <configuration>
+                    <archive>
+                      <manifest>
+                        <addDefaultSpecificationEntries>false</addDefaultSpecificationEntries>
+                      </manifest>
+                    </archive>
+                  </configuration>
+                </plugin>
+
+            </plugins>
+        </pluginManagement>
+
+        <plugins>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>test-jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.felix</groupId>
+                <artifactId>maven-bundle-plugin</artifactId>
+                <version>2.3.4</version>
+                <configuration>
+                    <instructions>
+                        <Export-Package>
+                            org.apache.geronimo.components.jaspi;version=2.0,
+                            org.apache.geronimo.components.jaspi.model;version=2.0
+                        </Export-Package>
+                        <Export-SPI-Provider>org.apache.geronimo.components.jaspi.AuthConfigFactoryImpl</Export-SPI-Provider>
+                        <Import-Package>
+                            !org.apache.geronimo.components.jaspi.*,
+                            org.apache.geronimo.osgi.registry.api;resolution:=optional,
+                            *
+                        </Import-Package>
+                        <_versionpolicy-impl>[$(version;==;$(@)),$(version;=+;$(@)))</_versionpolicy-impl>
+                        <_versionpolicy-uses>[$(version;==;$(@)),$(version;+;$(@)))</_versionpolicy-uses>
+                        <Specification-Version>1.0</Specification-Version>
+                        <Specification-Title>JASPIC</Specification-Title>
+                        <Specification-Vendor>Sun Microsystems</Specification-Vendor>
+                        <Private-Package>org.apache.geronimo.osgi.locator,org.apache.geronimo.components.jaspi.impl</Private-Package>
+                        <Bundle-Activator>org.apache.geronimo.osgi.locator.Activator</Bundle-Activator>
+                    </instructions>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+    <profiles>
+        <profile>
+            <id>jaxb-generate</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.jvnet.jaxb2.maven2</groupId>
+                        <artifactId>maven-jaxb2-plugin</artifactId>
+                        <version>0.7.2</version>
+                        <executions>
+                            <execution>
+                                <goals>
+                                    <goal>generate</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                        <configuration>
+                            <generatePackage>org.apache.geronimo.components.jaspi.model</generatePackage>
+                            <specVersion>2.1</specVersion>
+                            <extension>true</extension>
+                            <episode>true</episode>
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </build>
+            <!--<dependencies>-->
+                <!--<dependency>-->
+                    <!--<groupId>com.sun.xml.bind</groupId>-->
+                    <!--<artifactId>jaxb-xjc</artifactId>-->
+                    <!--<version>2.2</version>-->
+                    <!--<scope>provided</scope>-->
+                <!--</dependency>-->
+            <!--</dependencies>-->
+        </profile>
+        <profile>
+            <id>sxc-generate</id>
+            <build>
+                <plugins>
+
+                    <plugin>
+                        <groupId>com.envoisolutions.sxc</groupId>
+                        <artifactId>sxc-jaxb-maven-plugin</artifactId>
+                        <version>0.8-SNAPSHOT</version>
+                        <executions>
+                            <execution>
+                                <configuration>
+                                    <classes>
+                                        <class>org.apache.geronimo.components.jaspi.model</class>
+                                    </classes>
+                                </configuration>
+                                <goals>
+                                    <goal>generate</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
+
+</project>
+
