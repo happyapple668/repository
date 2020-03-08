@@ -1,0 +1,837 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <!--
+/**
+ * Licensed to the Apache Software Foundation (ASF) under one
+ * or more contributor license agreements.  See the NOTICE file
+ * distributed with this work for additional information
+ * regarding copyright ownership.  The ASF licenses this file
+ * to you under the Apache License, Version 2.0 (the
+ * "License"); you may not use this file except in compliance
+ * with the License.  You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+
+  ON MVN COMPILE NOT WORKING
+
+  If you wondering why 'mvn compile' does not work building HBase
+  (in particular, if you are doing it for the first time), instead do
+  'mvn package'.  If you are interested in the full story, see
+  https://issues.apache.org/jira/browse/HBASE-6795.
+
+-->
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>com.cloudera.cdh</groupId>
+    <artifactId>cdh-root</artifactId>
+    <version>5.10.1</version>
+    <relativePath/>
+    <!-- no parent resolution -->
+  </parent>
+  <groupId>org.apache.hbase</groupId>
+  <artifactId>hbase</artifactId>
+  <packaging>pom</packaging>
+  <version>1.2.0-cdh5.10.1</version>
+  <name>Apache HBase</name>
+  <description>
+    Apache HBase is the Hadoop database. Use it when you need
+    random, realtime read/write access to your Big Data.
+    This project's goal is the hosting of very large tables -- billions of rows X millions of columns -- atop clusters
+    of commodity hardware.
+  </description>
+  <url>http://hbase.apache.org</url>
+  <inceptionYear>2007</inceptionYear>
+  <!-- Set here so we can consistently use the correct name, even on branches with
+       an ASF parent pom older than v15. Also uses the url from v18.
+    -->
+  <licenses>
+    <license>
+      <name>Apache License, Version 2.0</name>
+      <url>https://www.apache.org/licenses/LICENSE-2.0.txt</url>
+      <distribution>repo</distribution>
+    </license>
+  </licenses>
+
+  <modules>
+    <module>hbase-resource-bundle</module>
+    <module>hbase-server</module>
+    <module>hbase-thrift</module>
+    <module>hbase-rest</module>
+    <module>hbase-shell</module>
+    <module>hbase-protocol</module>
+    <module>hbase-client</module>
+    <module>hbase-hadoop-compat</module>
+    <module>hbase-common</module>
+    <module>hbase-procedure</module>
+    <module>hbase-it</module>
+    <module>hbase-examples</module>
+    <module>hbase-prefix-tree</module>
+    <module>hbase-assembly</module>
+    <module>hbase-testing-util</module>
+    <module>hbase-annotations</module>
+    <module>hbase-checkstyle</module>
+    <module>hbase-external-blockcache</module>
+    <module>hbase-shaded</module>
+    <module>hbase-spark</module>
+  </modules>
+  <!--Add apache snapshots in case we want to use unreleased versions of plugins:
+      e.g. surefire 2.18-SNAPSHOT-->
+  <pluginRepositories>
+    <pluginRepository>
+      <id>apache.snapshots</id>
+      <url>http://repository.apache.org/snapshots/</url>
+    </pluginRepository>
+  </pluginRepositories>
+  <scm>
+    <connection>scm:git:git://git.apache.org/hbase.git</connection>
+    <developerConnection>scm:git:https://git-wip-us.apache.org/repos/asf/hbase.git</developerConnection>
+    <url>https://git-wip-us.apache.org/repos/asf?p=hbase.git</url>
+  </scm>
+  <issueManagement>
+    <system>JIRA</system>
+    <url>http://issues.apache.org/jira/browse/HBASE</url>
+  </issueManagement>
+  <ciManagement>
+    <system>hudson</system>
+    <url>http://hudson.zones.apache.org/hudson/view/HBase/job/HBase-TRUNK/</url>
+  </ciManagement>
+  <mailingLists>
+    <mailingList>
+      <name>User List</name>
+      <subscribe>user-subscribe@hbase.apache.org</subscribe>
+      <unsubscribe>user-unsubscribe@hbase.apache.org</unsubscribe>
+      <post>user@hbase.apache.org</post>
+      <archive>http://mail-archives.apache.org/mod_mbox/hbase-user/</archive>
+      <otherArchives>
+        <otherArchive>http://dir.gmane.org/gmane.comp.java.hadoop.hbase.user</otherArchive>
+        <otherArchive>http://search-hadoop.com/?q=&amp;fc_project=HBase</otherArchive>
+      </otherArchives>
+    </mailingList>
+    <mailingList>
+      <name>Developer List</name>
+      <subscribe>dev-subscribe@hbase.apache.org</subscribe>
+      <unsubscribe>dev-unsubscribe@hbase.apache.org</unsubscribe>
+      <post>dev@hbase.apache.org</post>
+      <archive>http://mail-archives.apache.org/mod_mbox/hbase-dev/</archive>
+      <otherArchives>
+        <otherArchive>http://dir.gmane.org/gmane.comp.java.hadoop.hbase.devel</otherArchive>
+        <otherArchive>http://search-hadoop.com/?q=&amp;fc_project=HBase</otherArchive>
+      </otherArchives>
+    </mailingList>
+    <mailingList>
+      <name>Commits List</name>
+      <subscribe>commits-subscribe@hbase.apache.org</subscribe>
+      <unsubscribe>commits-unsubscribe@hbase.apache.org</unsubscribe>
+      <archive>http://mail-archives.apache.org/mod_mbox/hbase-commits/</archive>
+    </mailingList>
+    <mailingList>
+      <name>Issues List</name>
+      <subscribe>issues-subscribe@hbase.apache.org</subscribe>
+      <unsubscribe>issues-unsubscribe@hbase.apache.org</unsubscribe>
+      <archive>http://mail-archives.apache.org/mod_mbox/hbase-issues/</archive>
+    </mailingList>
+    <mailingList>
+      <name>Builds List</name>
+      <subscribe>builds-subscribe@hbase.apache.org</subscribe>
+      <unsubscribe>builds-unsubscribe@hbase.apache.org</unsubscribe>
+      <archive>http://mail-archives.apache.org/mod_mbox/hbase-builds/</archive>
+    </mailingList>
+  </mailingLists>
+  <developers>
+    <developer>
+      <id>acube123</id>
+      <name>Amitanand S. Aiyer</name>
+      <email>acube123@apache.org</email>
+      <timezone>-8</timezone>
+      <organization>Facebook</organization>
+      <organizationUrl>http://www.facebook.com</organizationUrl>
+    </developer>
+    <developer>
+      <id>apurtell</id>
+      <name>Andrew Purtell</name>
+      <email>apurtell@apache.org</email>
+      <timezone>-8</timezone>
+      <organization>Intel</organization>
+      <organizationUrl>http://www.intel.com</organizationUrl>
+    </developer>
+    <developer>
+      <id>anoopsamjohn</id>
+      <name>Anoop Sam John</name>
+      <email>anoopsamjohn@apache.org</email>
+      <timezone>+5</timezone>
+      <organization>Intel</organization>
+      <organizationUrl>http://www.intel.com</organizationUrl>
+    </developer>
+    <developer>
+      <id>ddas</id>
+      <name>Devaraj Das</name>
+      <email>ddas@apache.org</email>
+      <timezone>-8</timezone>
+      <organization>Hortonworks</organization>
+      <organizationUrl>http://www.hortonworks.com</organizationUrl>
+    </developer>
+    <developer>
+      <id>dmeil</id>
+      <name>Doug Meil</name>
+      <email>dmeil@apache.org</email>
+      <timezone>-5</timezone>
+      <organization>Explorys</organization>
+      <organizationUrl>http://www.explorys.com</organizationUrl>
+    </developer>
+    <developer>
+      <id>enis</id>
+      <name>Enis Soztutar</name>
+      <email>enis@apache.org</email>
+      <timezone>-8</timezone>
+      <organization>Hortonworks</organization>
+      <organizationUrl>http://www.hortonworks.com</organizationUrl>
+    </developer>
+    <developer>
+      <id>fenghh</id>
+      <name>Honghua Feng</name>
+      <email>fenghh@apache.org</email>
+      <timezone>+8</timezone>
+      <organization>Xiaomi</organization>
+      <organizationUrl>http://www.xiaomi.com</organizationUrl>
+    </developer>
+    <developer>
+      <id>garyh</id>
+      <name>Gary Helmling</name>
+      <email>garyh@apache.org</email>
+      <timezone>-8</timezone>
+      <organization>Continuuity</organization>
+      <organizationUrl>http://www.continuuity.com</organizationUrl>
+    </developer>
+    <developer>
+      <id>gchanan</id>
+      <name>Gregory Chanan</name>
+      <email>gchanan@apache.org</email>
+      <timezone>-8</timezone>
+      <organization>Cloudera</organization>
+      <organizationUrl>http://www.cloudera.com</organizationUrl>
+    </developer>
+    <developer>
+      <id>jdcryans</id>
+      <name>Jean-Daniel Cryans</name>
+      <email>jdcryans@apache.org</email>
+      <timezone>-8</timezone>
+      <organization>Cloudera</organization>
+      <organizationUrl>http://www.cloudera.com</organizationUrl>
+    </developer>
+    <developer>
+      <id>jeffreyz</id>
+      <name>Jeffrey Zhong</name>
+      <email>jeffreyz@apache.org</email>
+      <timezone>-8</timezone>
+      <organization>Hortonworks</organization>
+      <organizationUrl>http://www.hortonworks.com</organizationUrl>
+    </developer>
+    <developer>
+      <id>jyates</id>
+      <name>Jesse Yates</name>
+      <email>jyates@apache.org</email>
+      <timezone>-8</timezone>
+      <organization>Salesforce.com</organization>
+      <organizationUrl>http://www.salesforce.com/</organizationUrl>
+    </developer>
+    <developer>
+      <id>jgray</id>
+      <name>Jonathan Gray</name>
+      <email>jgray@fb.com</email>
+      <timezone>-8</timezone>
+      <organization>Continuuity</organization>
+      <organizationUrl>http://www.continuuity.com</organizationUrl>
+    </developer>
+    <developer>
+      <id>jmhsieh</id>
+      <name>Jonathan Hsieh</name>
+      <email>jmhsieh@apache.org</email>
+      <timezone>-8</timezone>
+      <organization>Cloudera</organization>
+      <organizationUrl>http://www.cloudera.com</organizationUrl>
+    </developer>
+    <developer>
+      <id>jxiang</id>
+      <name>Jimmy Xiang</name>
+      <email>jxiang@apache.org</email>
+      <timezone>-8</timezone>
+      <organization>Cloudera</organization>
+      <organizationUrl>http://www.cloudera.com</organizationUrl>
+    </developer>
+    <developer>
+      <id>kannan</id>
+      <name>Kannan Muthukkaruppan</name>
+      <email>kannan@fb.com</email>
+      <timezone>-8</timezone>
+      <organization>Facebook</organization>
+      <organizationUrl>http://www.facebook.com</organizationUrl>
+    </developer>
+    <developer>
+      <id>karthik</id>
+      <name>Karthik Ranganathan</name>
+      <email>kranganathan@fb.com</email>
+      <timezone>-8</timezone>
+      <organization>Facebook</organization>
+      <organizationUrl>http://www.facebook.com</organizationUrl>
+    </developer>
+    <developer>
+      <id>larsgeorge</id>
+      <name>Lars George</name>
+      <email>larsgeorge@apache.org</email>
+      <timezone>+1</timezone>
+      <organization>Cloudera</organization>
+      <organizationUrl>http://www.cloudera.com/</organizationUrl>
+    </developer>
+    <developer>
+      <id>larsh</id>
+      <name>Lars Hofhansl</name>
+      <email>larsh@apache.org</email>
+      <timezone>-8</timezone>
+      <organization>Salesforce.com</organization>
+      <organizationUrl>http://www.salesforce.com/</organizationUrl>
+    </developer>
+    <developer>
+      <id>liangxie</id>
+      <name>Liang Xie</name>
+      <email>liangxie@apache.org</email>
+      <timezone>+8</timezone>
+      <organization>Xiaomi</organization>
+      <organizationUrl>http://www.xiaomi.com/</organizationUrl>
+    </developer>
+    <developer>
+      <id>mbautin</id>
+      <name>Mikhail Bautin</name>
+      <email>mbautin@apache.org</email>
+      <timezone>-8</timezone>
+      <organization>Facebook</organization>
+      <organizationUrl>http://www.facebook.com</organizationUrl>
+    </developer>
+    <developer>
+      <id>ndimiduk</id>
+      <name>Nick Dimiduk</name>
+      <email>ndimiduk@apache.org</email>
+      <timezone>-8</timezone>
+      <organization>Hortonworks</organization>
+      <organizationUrl>http://www.hortonworks.com</organizationUrl>
+    </developer>
+    <developer>
+      <id>nspiegelberg</id>
+      <name>Nicolas Spiegelberg</name>
+      <email>nspiegelberg@fb.com</email>
+      <timezone>-8</timezone>
+      <organization>Facebook</organization>
+      <organizationUrl>http://www.facebook.com</organizationUrl>
+    </developer>
+    <developer>
+      <id>rawson</id>
+      <name>Ryan Rawson</name>
+      <email>rawson@apache.org</email>
+      <timezone>-8</timezone>
+      <organization>DrawnToScale</organization>
+      <organizationUrl>http://drawntoscale.com/</organizationUrl>
+    </developer>
+    <developer>
+      <id>sershe</id>
+      <name>Sergey Shelukhin</name>
+      <email>sershe@apache.org</email>
+      <timezone>-8</timezone>
+      <organization>Hortonworks</organization>
+      <organizationUrl>http://www.hortonworks.com</organizationUrl>
+    </developer>
+    <developer>
+      <id>stack</id>
+      <name>Michael Stack</name>
+      <email>stack@apache.org</email>
+      <timezone>-8</timezone>
+      <organization>Cloudera</organization>
+      <organizationUrl>http://www.cloudera.com/</organizationUrl>
+    </developer>
+    <developer>
+      <id>tedyu</id>
+      <name>Ted Yu</name>
+      <email>yuzhihong@gmail.com</email>
+      <timezone>-8</timezone>
+      <organization>Hortonworks</organization>
+      <organizationUrl>http://www.hortonworks.com</organizationUrl>
+    </developer>
+    <developer>
+      <id>todd</id>
+      <name>Todd Lipcon</name>
+      <email>todd@apache.org</email>
+      <timezone>-8</timezone>
+      <organization>Cloudera</organization>
+      <organizationUrl>http://www.cloudera.com</organizationUrl>
+    </developer>
+    <developer>
+      <id>rajeshbabu</id>
+      <name>Rajeshbabu Chintaguntla</name>
+      <email>rajeshbabu@apache.org</email>
+      <timezone>+5</timezone>
+      <organization>Huawei</organization>
+      <organizationUrl>http://www.huawei.com</organizationUrl>
+    </developer>
+    <developer>
+      <id>ramkrishna</id>
+      <name>Ramkrishna S Vasudevan</name>
+      <email>ramkrishna@apache.org</email>
+      <timezone>+5</timezone>
+      <organization>Intel</organization>
+      <organizationUrl>http://www.intel.in</organizationUrl>
+    </developer>
+    <developer>
+      <id>liyin</id>
+      <name>Liyin Tang</name>
+      <email>liyin.tang@fb.com</email>
+      <timezone>-8</timezone>
+      <organization>Facebook</organization>
+      <organizationUrl>http://www.facebook.com</organizationUrl>
+    </developer>
+    <developer>
+      <id>nkeywal</id>
+      <name>Nicolas Liochon</name>
+      <email>nkeywal@apache.org</email>
+      <timezone>+1</timezone>
+      <organization>Scaled Risk</organization>
+      <organizationUrl>http://www.scaledrisk.com</organizationUrl>
+    </developer>
+    <developer>
+      <id>eclark</id>
+      <name>Elliott Clark</name>
+      <email>eclark@apache.org</email>
+      <timezone>-8</timezone>
+      <organization>Facebook</organization>
+      <organizationUrl>http://www.facebook.com</organizationUrl>
+    </developer>
+    <developer>
+      <id>mbertozzi</id>
+      <name>Matteo Bertozzi</name>
+      <email>mbertozzi@apache.org</email>
+      <timezone>0</timezone>
+      <organization>Cloudera</organization>
+      <organizationUrl>http://www.cloudera.com</organizationUrl>
+    </developer>
+    <developer>
+      <id>zjushch</id>
+      <name>Chunhui Shen</name>
+      <email>zjushch@apache.org</email>
+      <timezone>+8</timezone>
+      <organization>Taobao</organization>
+      <organizationUrl>http://www.taobao.com</organizationUrl>
+    </developer>
+  </developers>
+  <repositories>
+    <repository>
+      <id>cdh.repo</id>
+      <url>https://repository.cloudera.com/artifactory/cloudera-repos</url>
+      <name>Cloudera Repositories</name>
+      <snapshots>
+        <enabled>false</enabled>
+      </snapshots>
+    </repository>
+    <repository>
+      <id>cdh.snapshots.repo</id>
+      <url>https://repository.cloudera.com/artifactory/libs-snapshot-local</url>
+      <name>Cloudera Snapshots Repository</name>
+      <snapshots>
+        <enabled>true</enabled>
+      </snapshots>
+      <releases>
+        <enabled>false</enabled>
+      </releases>
+    </repository>
+    <repository>
+      <id>cloudbees netty</id>
+      <url>http://repository-netty.forge.cloudbees.com/snapshot/</url>
+    </repository>
+    <repository>
+      <id>apache release</id>
+      <url>https://repository.apache.org/content/repositories/releases/</url>
+    </repository>
+    <repository>
+      <id>java.net</id>
+      <name>Java.Net</name>
+      <url>http://download.java.net/maven/2/</url>
+      <snapshots>
+        <enabled>false</enabled>
+      </snapshots>
+      <releases>
+        <enabled>true</enabled>
+      </releases>
+    </repository>
+    <repository>
+      <id>repository.jboss.org</id>
+      <url>http://repository.jboss.org/nexus/content/groups/public-jboss/</url>
+      <snapshots>
+        <enabled>false</enabled>
+      </snapshots>
+    </repository>
+    <repository>
+      <id>ghelmling.testing</id>
+      <name>Gary Helmling test repo</name>
+      <url>http://people.apache.org/~garyh/mvn/</url>
+      <snapshots>
+        <enabled>true</enabled>
+      </snapshots>
+      <releases>
+        <enabled>true</enabled>
+      </releases>
+    </repository>
+  </repositories>
+  <build>
+    <pluginManagement>
+      <plugins>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+           <artifactId>maven-javadoc-plugin</artifactId>
+           <version>${javadoc.version}</version>
+        </plugin>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-remote-resources-plugin</artifactId>
+          <version>1.5</version>
+        </plugin>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-shade-plugin</artifactId>
+          <version>2.4.1</version>
+        </plugin>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-release-plugin</artifactId>
+          <configuration>
+            <!--You need this profile. It'll sign your artifacts.
+                I'm not sure if this config. actually works though.
+                I've been specifying -Papache-release on the command-line
+             -->
+            <releaseProfiles>apache-release</releaseProfiles>
+            <!--This stops our running tests for each stage of maven release.
+                But it builds the test jar.  From SUREFIRE-172.
+              -->
+            <arguments>-Dmaven.test.skip.exec ${arguments}</arguments>
+            <goals>${goals}</goals>
+            <pomFileName>pom.xml</pomFileName>
+          </configuration>
+        </plugin>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-compiler-plugin</artifactId>
+          <version>2.5.1</version>
+          <configuration>
+            <source>${sourceJavaVersion}</source>
+            <target>${targetJavaVersion}</target>
+            <showWarnings>true</showWarnings>
+            <showDeprecation>false</showDeprecation>
+            <compilerArgument>-Xlint:-options</compilerArgument>
+          </configuration>
+        </plugin>
+        <!-- Test oriented plugins -->
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-surefire-plugin</artifactId>
+          <version>${surefire.version}</version>
+          <dependencies>
+            <!-- by default surefire selects dynamically the connector to the unit tests
+              tool. We want to use always the same as the different connectors can have different
+              bugs and behaviour. -->
+            <dependency>
+              <groupId>org.apache.maven.surefire</groupId>
+              <artifactId>${surefire.provider}</artifactId>
+              <version>${surefire.version}</version>
+            </dependency>
+          </dependencies>
+          <!-- Generic testing configuration for all packages -->
+          <configuration>
+            <failIfNoTests>false</failIfNoTests>
+            <skip>${surefire.skipFirstPart}</skip>
+            <forkCount>${surefire.firstPartForkCount}</forkCount>
+            <reuseForks>false</reuseForks>
+            <testFailureIgnore>${surefire.testFailureIgnore}</testFailureIgnore>
+            <forkedProcessTimeoutInSeconds>${surefire.timeout}</forkedProcessTimeoutInSeconds>
+            <redirectTestOutputToFile>${test.output.tofile}</redirectTestOutputToFile>
+            <systemPropertyVariables>
+              <test.build.classes>${test.build.classes}</test.build.classes>
+            </systemPropertyVariables>
+            <includes>
+              <include>${unittest.include}</include>
+            </includes>
+            <excludes>
+              <exclude>${integrationtest.include}</exclude>
+              <exclude>**/*$*</exclude>
+              <exclude>${test.exclude.pattern}</exclude>
+            </excludes>
+            <environmentVariables>
+              <LD_LIBRARY_PATH>${env.LD_LIBRARY_PATH}:${project.build.directory}/nativelib</LD_LIBRARY_PATH>
+              <DYLD_LIBRARY_PATH>${env.DYLD_LIBRARY_PATH}:${project.build.directory}/nativelib</DYLD_LIBRARY_PATH>
+              <MALLOC_ARENA_MAX>4</MALLOC_ARENA_MAX>
+            </environmentVariables>
+          </configuration>
+          <executions>
+            <execution>
+              <id>secondPartTestsExecution</id>
+              <phase>test</phase>
+              <goals>
+                <goal>test</goal>
+              </goals>
+              <configuration>
+                <skip>${surefire.skipSecondPart}</skip>
+                <testFailureIgnore>${surefire.testFailureIgnore}</testFailureIgnore>
+                <reuseForks>false</reuseForks>
+                <forkCount>${surefire.secondPartForkCount}</forkCount>
+                <groups>${surefire.secondPartGroups}</groups>
+                <forkedProcessTimeoutInSeconds>${surefire.timeout}</forkedProcessTimeoutInSeconds>
+              </configuration>
+            </execution>
+          </executions>
+        </plugin>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-surefire-report-plugin</artifactId>
+          <version>${surefire.version}</version>
+        </plugin>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-clean-plugin</artifactId>
+          <configuration>
+            <filesets>
+              <fileset>
+                <!--dfs tests have build dir hardcoded. Clean it as part of
+               clean target-->
+                <directory>build</directory>
+              </fileset>
+            </filesets>
+          </configuration>
+        </plugin>
+        <plugin>
+          <groupId>org.codehaus.mojo</groupId>
+          <artifactId>buildnumber-maven-plugin</artifactId>
+          <version>1.3</version>
+        </plugin>
+        <plugin>
+          <groupId>org.codehaus.mojo</groupId>
+          <artifactId>findbugs-maven-plugin</artifactId>
+          <version>3.0.0</version>
+          <!--NOTE: Findbugs 3.0.0 requires jdk7-->
+          <configuration>
+            <excludeFilterFile>${project.basedir}/../dev-support/findbugs-exclude.xml</excludeFilterFile>
+            <findbugsXmlOutput>true</findbugsXmlOutput>
+            <xmlOutput>true</xmlOutput>
+            <effort>Max</effort>
+          </configuration>
+        </plugin>
+        <plugin>
+          <groupId>org.codehaus.mojo</groupId>
+          <artifactId>build-helper-maven-plugin</artifactId>
+          <version>1.9.1</version>
+        </plugin>
+        <plugin>
+          <artifactId>maven-antrun-plugin</artifactId>
+          <version>${maven.antrun.version}</version>
+        </plugin>
+        <plugin>
+          <groupId>org.jamon</groupId>
+          <artifactId>jamon-maven-plugin</artifactId>
+          <version>${jamon.plugin.version}</version>
+        </plugin>
+        <!-- Make a jar and put the sources in the jar.
+        In the parent pom, so submodules will do the right thing. -->
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-source-plugin</artifactId>
+          <executions>
+            <execution>
+              <id>attach-sources</id>
+              <phase>prepare-package</phase>
+              <goals>
+                <goal>jar-no-fork</goal>
+              </goals>
+            </execution>
+          </executions>
+        </plugin>
+        <!-- General configuration for submodules who want to build a test jar -->
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-jar-plugin</artifactId>
+          <executions>
+            <execution>
+              <phase>prepare-package</phase>
+              <goals>
+                  <!--This goal will install a -test.jar when we do install
+                      See http://maven.apache.org/guides/mini/guide-attached-tests.html
+                   -->
+                <goal>test-jar</goal>
+              </goals>
+            </execution>
+          </executions>
+          <configuration>
+            <excludes>
+              <exclude>hbase-site.xml</exclude>
+              <exclude>hdfs-site.xml</exclude>
+              <exclude>log4j.properties</exclude>
+              <exclude>mapred-queues.xml</exclude>
+              <exclude>mapred-site.xml</exclude>
+              <exclude>zoo.cfg</exclude>
+            </excludes>
+          </configuration>
+        </plugin>
+        <!-- General config for eclipse classpath/settings -->
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-eclipse-plugin</artifactId>
+          <version>2.9</version>
+        </plugin>
+        <!--This plugin's configuration is used to store Eclipse m2e settings
+            only. It has no influence on the Maven build itself. m2e does not
+            provide any safeguards against rogue maven plugins that leak
+            classloaders, modify random files inside workspace or throw nasty
+            exceptions to fail the build.
+            Top level doesn't do any specific configuration currently - left
+            to modules to decide what they want to bind, sans those plugins
+            defined in this pom. -->
+        <plugin>
+          <groupId>org.eclipse.m2e</groupId>
+          <artifactId>lifecycle-mapping</artifactId>
+          <version>1.0.0</version>
+          <configuration>
+            <lifecycleMappingMetadata>
+              <pluginExecutions>
+                <pluginExecution>
+                  <pluginExecutionFilter>
+                    <groupId>org.jacoco</groupId>
+                    <artifactId>jacoco-maven-plugin</artifactId>
+                    <versionRange>[0.6.2.201302030002,)</versionRange>
+                    <goals>
+                      <goal>prepare-agent</goal>
+                    </goals>
+                  </pluginExecutionFilter>
+                  <action>
+                    <ignore></ignore>
+                  </action>
+                </pluginExecution>
+                <pluginExecution>
+                  <pluginExecutionFilter>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-enforcer-plugin</artifactId>
+                    <versionRange>[1.0.1,)</versionRange>
+                    <goals>
+                      <goal>enforce</goal>
+                    </goals>
+                  </pluginExecutionFilter>
+                  <action>
+                    <ignore />
+                  </action>
+                </pluginExecution>
+                <pluginExecution>
+                  <pluginExecutionFilter>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-remote-resources-plugin</artifactId>
+                    <versionRange>[1.5,)</versionRange>
+                    <goals>
+                      <goal>process</goal>
+                    </goals>
+                  </pluginExecutionFilter>
+                  <action>
+                    <ignore />
+                  </action>
+                </pluginExecution>
+                  <pluginExecution>
+                    <pluginExecutionFilter>
+                      <groupId>org.codehaus.mojo</groupId>
+                      <artifactId>buildnumber-maven-plugin</artifactId>
+                      <versionRange>[1.3,)</versionRange>
+                      <goals>
+                        <goal>create-timestamp</goal>
+                      </goals>
+                    </pluginExecutionFilter>
+                    <action>
+                      <execute>
+                        <runOnConfiguration>true</runOnConfiguration>
+                        <runOnIncremental>true</runOnIncremental>
+                      </execute>
+                    </action>
+                  </pluginExecution>
+              </pluginExecutions>
+            </lifecycleMappingMetadata>
+          </configuration>
+        </plugin>
+        <plugin>
+          <!-- excludes are inherited -->
+          <groupId>org.apache.rat</groupId>
+          <artifactId>apache-rat-plugin</artifactId>
+          <version>0.11</version>
+          <configuration>
+            <excludes>
+              <exclude>**/*.versionsBackup</exclude>
+              <exclude>**/*.log</exclude>
+              <exclude>**/.*</exclude>
+              <!-- Also exclude hidden directories. -->
+              <exclude>**/.*/*</exclude>
+              <exclude>**/*.tgz</exclude>
+              <exclude>**/*.orig</exclude>
+              <exclude>**/8e8ab58dcf39412da19833fcd8f687ac</exclude>
+              <exclude>**/a6a6562b777440fd9c34885428f5cb61.21e75333ada3d5bafb34bb918f29576c</exclude>
+              <exclude>**/0000000000000016310</exclude>
+              <exclude>**/.idea/**</exclude>
+              <exclude>**/*.iml</exclude>
+              <exclude>**/CHANGES.txt</exclude>
+              <exclude>**/generated/**</exclude>
+              <exclude>**/gen-*/**</exclude>
+              <!-- No material contents -->
+              <exclude>conf/regionservers</exclude>
+              <exclude>**/*.avpr</exclude>
+              <exclude>**/*.svg</exclude>
+              <!-- non-standard notice file from jruby included by reference -->
+              <exclude>**/src/main/resources/META-INF/LEGAL</exclude>
+              <!-- MIT: https://github.com/asciidoctor/asciidoctor/blob/master/LICENSE.adoc -->
+              <exclude>**/src/main/asciidoc/hbase.css</exclude>
+              <!-- MIT http://jquery.org/license -->
+              <exclude>**/jquery.min.js</exclude>
+              <!-- vector graphics -->
+              <exclude>**/*.vm</exclude>
+              <!-- apache doxia generated -->
+              <exclude>**/control</exclude>
+              <exclude>**/conffile</exclude>
+              <!-- auto-gen docs -->
+              <exclude>docs/*</exclude>
+              <exclude>logs/*</exclude>
+              <!--  exclude source control files -->
+              <exclude>.git/**</exclude>
+              <exclude>.svn/**</exclude>
+              <exclude>**/.settings/**</exclude>
+              <exclude>**/patchprocess/**</exclude>
+              <exclude>src/main/site/resources/repo/**</exclude>
+              <exclude>**/dependency-reduced-pom.xml</exclude>
+              <exclude>**/rat.txt</exclude>
+              <exclude>**/cloudera/**</exclude>
+              <exclude>**/debian/**</exclude>
+              <exclude>PATCH.txt</exclude>
+            </excludes>
+          </configuration>
+        </plugin>
+        <plugin>
+          <artifactId>maven-assembly-plugin</artifactId>
+          <version>${maven.assembly.version}</version>
+          <configuration>
+            <!--Defer to the hbase-assembly sub-module.  It
+             does all assembly-->
+            <skipAssembly>true</skipAssembly>
+          </configuration>
+        </plugin>
+        <plugin>
+          <groupId>org.apache.hadoop</groupId>
+          <artifactId>hadoop-maven-plugins</artifactId>
+          <version>${hadoop-two.version}</version>
+          <configuration>
+            <protocVersion>${protobuf.version}</protocVersion>
+            <protocCommand>${protoc.path}</protocCommand>
+          </configuration>
+        </plugin>
+        <plugin>
+      
