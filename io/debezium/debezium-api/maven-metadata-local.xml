@@ -1,13 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <metadata>
   <groupId>io.debezium</groupId>
-  <artifactId>debezium-connector-cassandra</artifactId>
+  <artifactId>debezium-api</artifactId>
   <versioning>
-    <release>1.0.0.Final</release>
     <versions>
-      <version>1.0.0.Final</version>
       <version>1.1.0-SNAPSHOT</version>
     </versions>
-    <lastUpdated>20200313000429</lastUpdated>
+    <lastUpdated>20200312235842</lastUpdated>
   </versioning>
 </metadata>
