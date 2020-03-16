@@ -164,7 +164,7 @@
         <module>debezium-microbenchmark</module>
         <module>debezium-testing</module>
     </modules>
-<!--
+
     <distributionManagement>
       <repository>
         <id>ossrh</id>
@@ -202,7 +202,7 @@
             </snapshots>
         </repository>
     </repositories>
--->
+
     <dependencyManagement>
         <dependencies>
             <!-- Major dependencies -->
