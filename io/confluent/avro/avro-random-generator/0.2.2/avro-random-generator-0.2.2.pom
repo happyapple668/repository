@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>io.confluent.avro</groupId>
+  <artifactId>avro-random-generator</artifactId>
+  <version>0.2.2</version>
+  <name>Avro Random Generator</name>
+  <description>Avro Random Generator is a tool for randomly generating data to match Avro schemas</description>
+  <url>https://github.com:confluentinc/avro-random-generator</url>
+  <licenses>
+    <license>
+      <name>Apache License 2.0</name>
+      <url>http://www.apache.org/licenses/LICENSE-2.0.html</url>
+    </license>
+  </licenses>
+  <developers>
+    <developer>
+      <id>C0urante</id>
+      <name>Chris Egerton</name>
+    </developer>
+  </developers>
+  <scm>
+    <connection>scm:git:ssh://github.com:confluentinc/avro-random-generator.git</connection>
+    <developerConnection>scm:git:ssh://github.com:confluentinc/avro-random-generator.git</developerConnection>
+    <url>https://github.com:confluentinc/avro-random-generator</url>
+  </scm>
+  <dependencies>
+    <dependency>
+      <groupId>org.slf4j</groupId>
+      <artifactId>slf4j-api</artifactId>
+      <version>1.7.21</version>
+      <scope>compile</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.avro</groupId>
+      <artifactId>avro</artifactId>
+      <version>1.8.1</version>
+      <scope>compile</scope>
+    </dependency>
+    <dependency>
+      <groupId>com.github.mifmif</groupId>
+      <artifactId>generex</artifactId>
+      <version>1.0.1</version>
+      <scope>compile</scope>
+    </dependency>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>4.12</version>
+      <scope>test</scope>
+    </dependency>
+  </dependencies>
+</project>
