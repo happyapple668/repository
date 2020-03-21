@@ -12,7 +12,8 @@
  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  See the License for the specific language governing permissions and
  limitations under the License.
---><project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+-->
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>org.ow2</groupId>
@@ -120,10 +121,35 @@
   <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     - Used to search plugins, plugins dependencies and build extensions
     - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
-  
+  <pluginRepositories>
+
+    <!-- Only list the snapshot repository here since the
+         main repository is synchronized to central -->
+    <pluginRepository>
+      <id>ow2-plugin-snapshot</id>
+      <name>OW2 Snapshot Plugin Repository</name>
+      <url>http://repository.ow2.org/nexus/content/repositories/snapshots</url>
+      <releases>
+        <enabled>false</enabled>
+      </releases>
+    </pluginRepository>
+
+  </pluginRepositories>
 
   <!-- Repositories -->
-  
+  <repositories>
+
+    <!-- Only list the snapshot repository here since the
+         main repository is synchronized to central -->
+    <repository>
+      <id>ow2-snapshot</id>
+      <name>OW2 Snapshot Repository</name>
+      <url>http://repository.ow2.org/nexus/content/repositories/snapshots</url>
+      <releases>
+        <enabled>false</enabled>
+      </releases>
+    </repository>
+  </repositories>
 
   <build>
     <plugins>
@@ -280,3 +306,4 @@
 
 
 </project>
+

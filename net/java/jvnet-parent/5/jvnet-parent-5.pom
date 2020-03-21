@@ -10,7 +10,8 @@
   ~ software distributed under the Apache License Version 2.0 is distributed on an
   ~ "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
   ~ See the Apache License Version 2.0 for the specific language governing permissions and limitations there under.
-  --><project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  -->
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>net.java</groupId>
@@ -44,8 +45,32 @@
   <!--
     Configure jvnet-nexus-releases repository by default.
   -->
-  
-  
+  <repositories>
+    <repository>
+      <id>jvnet-nexus-releases</id>
+      <name>Java.net Releases Repositories</name>
+      <url>https://maven.java.net/content/repositories/releases/</url>
+      <releases>
+        <enabled>true</enabled>
+      </releases>
+      <snapshots>
+        <enabled>false</enabled>
+      </snapshots>
+    </repository>
+  </repositories>
+  <pluginRepositories>
+    <pluginRepository>
+      <id>jvnet-nexus-releases</id>
+      <name>Java.net Releases Repositories</name>
+      <url>https://maven.java.net/content/repositories/releases/</url>
+      <releases>
+        <enabled>true</enabled>
+      </releases>
+      <snapshots>
+        <enabled>false</enabled>
+      </snapshots>
+    </pluginRepository>
+  </pluginRepositories>
 
   <build>
     <pluginManagement>
@@ -70,7 +95,7 @@
       intialize release.arguments to empty, otherwise if not defined
       it can fail the release plugin
     -->
-    <release.arguments />
+    <release.arguments></release.arguments>
   </properties>
 
   <profiles>

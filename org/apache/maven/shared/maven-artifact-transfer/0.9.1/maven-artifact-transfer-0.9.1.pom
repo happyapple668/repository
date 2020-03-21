@@ -109,7 +109,16 @@
       </plugin>
     </plugins>
   </build>
-  
+  <pluginRepositories>
+    <pluginRepository>
+      <releases>
+        <enabled>false</enabled>
+      </releases>
+      <snapshots />
+      <id>plexus-snapshots</id>
+      <url>https://oss.sonatype.org/content/repositories/plexus-snapshots</url>
+    </pluginRepository>
+  </pluginRepositories>
   <dependencies>
     <dependency>
       <groupId>org.apache.maven</groupId>
@@ -215,3 +224,4 @@
     </site>
   </distributionManagement>
 </project>
+

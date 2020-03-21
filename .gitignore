@@ -13,6 +13,8 @@ unknown/
 *.com
 *.lock
 *.part
+*.gz
+*.zip
 *.txt
 *.log
 *.out
